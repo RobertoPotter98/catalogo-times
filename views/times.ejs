@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Times</title>
+</head>
+<body>
+
+    <style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+
+    h1{
+        color: #333;
+        text-align: center;
+    }
+
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+    }
+
+    th{
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+    }
+
+    td{
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    tr:nth-child(even){
+        background-color: #f9f9f9;
+    }
+
+    a{
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a:hover{
+        text-decoration: underline;
+    }
+</style>
+
+    <h1>Lista de Times</h1>
+
+    <% if (times.length > 0) { %>
+
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Estádio</th>
+                <th>Cidade</th>
+                <th>Ação</th>
+            </tr>
+
+            <% times.forEach(time => { %>
+                <tr>
+                    <td><%= time.id %></td>
+                    <td><%= time.nome %></td>
+                    <td><%= time.estadio %></td>
+                    <td><%= time.cidade %></td>
+                    <td>
+                        <a href="/times/<%= time.id %>">
+                            Ver detalhes
+                        </a>
+                    </td>
+                </tr>
+            <% }) %>
+
+        </table>
+
+    <% } else { %>
+
+        <p>Nenhum time cadastrado.</p>
+
+    <% } %>
+
+    <br>
+    <a href="/">Voltar</a>
+
+</body>
+</html>
